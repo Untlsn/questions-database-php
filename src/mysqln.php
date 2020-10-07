@@ -21,6 +21,9 @@ class MySqlN {
             return $arr;
         }
     }
+    function queryOne(string $sqlCode) {
+        return $this->query($sqlCode)[0];
+    }
 
     function __destruct(){
         $this->connection->close();
