@@ -1,0 +1,14 @@
+const selected = '<?php echo $formWrapper->getAnswer() ?>';
+const good = '<?php echo $creator->question->getGoodAnswers() ?>';
+document.querySelector('.is-good').innerHTML = selected == good
+    ? 'Tak jest! To jest prawidłowa odpowiedź!'
+    : selected == 'null'
+        ? 'Nie! Wybierz jakąkolwiek odpowiedź!'
+        : 'Nie! To jest nieprawidłowa odpowiedź!'
+document.querySelectorAll('.answer-tag').forEach(button => {
+    button.style.backgroundColor = button.innerText == good
+    ? '#015501'
+    : button.innerText == selected 
+        ? '#690f10'
+        : '#342c30'
+})

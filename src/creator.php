@@ -1,4 +1,5 @@
 <?php
+require './src/form-wrapper.php';
 
 class Creator {
     public $question;
@@ -58,6 +59,15 @@ class Creator {
         "<$in class='$addClass'>
             $data
         </$in>";
+        return $this;
+    }
+    
+    function getPjsCode($sideName) {
+        $formWrapper = new FromWrapper();
+        $creator = $this;
+        echo "<script>";
+        include './creator/'.strtolower($sideName).'.pjs';
+        echo "</script>";
         return $this;
     }
 }

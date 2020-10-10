@@ -13,9 +13,6 @@ else:
 if($sideName != 'EE. 09') {
     require './src/speed-query.php';
     require './src/creator.php';
-    require './src/form-wrapper.php';
-
-    $formWrapper = new FromWrapper();
 
     $speed = new SpeedQuery('localhost', 'test', 'test_user_password');
     $creator = new Creator(
@@ -36,15 +33,18 @@ else {
     $creator
         ->getHeader()
         ->getFormStart()
-        ->prompt("Pytanie nr.{$creator->question->getId()} - Wskaż poprawną odpowieź!", 'h2', 'is-good')
+        ->prompt(
+            $sideName == 'Quest'
+                ?"Pytanie nr.{$creator->question->getId()} - Wskaż poprawną odpowieź!"
+                : '',
+        'h2', 'is-good')
         ->getContent()
-        ->getList()
-        ->getFromEnd();
+        ->getList($sideName == 'Quest')
+        ->getFromEnd()
+        ->getPjsCode($sideName);
+    if($sideName == 'Result')
+        $creator->getReloadButton();
 }
-
-
-
 PagePart::endFile();
-
     
 endif;
