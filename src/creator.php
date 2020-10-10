@@ -17,83 +17,47 @@ class Creator {
         return implode($this->sequence);
     }
     function getHeader() {
-        echo '
-        <div class="head">Pytanie</div>
-        ';
+        require './creator/header.html';
         return $this;
     }
     function getList($unbutton = false) {
-        echo '
-            <ol style="list-style-type: none">
-        ';
         $answers = $this->question->getAnswers();
-        foreach($this->sequence as $key) {
-            echo "<li>";
-            echo $unbutton
-                ? "<p class='answer-tag'>{$answers[$key]}</p>"
-                : "<input type='submit' value='{$answers[$key]}' name='answer' class='answer-tag answer-button'>";
-
-            echo "</li>";
-        }
-        echo '
-            </ol>
-        ';
+        require $unbutton
+            ? './creator/list-with-button.php'
+            : './creator/list-with-p.php';
         return $this;
     }
     function getContent() {
-        echo "
-            <h3 class='content'>
-                <p>
-                    {$this->question->getContent()}:
-                </p>
-            </h3>
-        ";
+        require './creator/content.php';
         return $this;
     }
     function getFormStart() {
-        echo "
-            <form 
-                class='main' 
-                action='result?id={$this->question->getId()}&seq={$this->getSequence()}' 
-                method='post'>
-        ";              
+        require './creator/form-start.php';              
         return $this;
     }
     function getFromEnd() {
-        echo '</form>';
+        require './creator/form-end.html';
         return $this;
     }
-
     function getFormSupstitieStart() {
-        echo "
-            <div class='main'>
-        ";
+        require './creator/form-supstitie-start.html';
         return $this;
     }
     function getFormSupstitieEnd() {
-        echo "
-            </div>
-        ";
+        require './creator/form-supstitie-end.html';
         return $this;
     }
 
     function getReloadButton() {
-        echo "
-            <div class='submit-a-container'>
-                <a href='./quest.php' class='submit-a'>
-                    Przejdz do kolejengo pytania
-                </a>
-            </div>    
-        ";
+        require './creator/reload-button.html';
         return $this;
     }
 
     function prompt($data, $in = 'div', $addClass = '') {
-        echo "
-            <$in class='$addClass'>
-                $data
-            </$in>
-        ";
+        echo 
+        "<$in class='$addClass'>
+            $data
+        </$in>";
         return $this;
     }
 }
