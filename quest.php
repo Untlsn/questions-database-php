@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pytanie</title>
-    <link rel="stylesheet" href="quest.css">
+    <link rel="stylesheet" href="style/quest.css">
     <?php
         require './src/speed-query.php';
         require './src/creator.php';
