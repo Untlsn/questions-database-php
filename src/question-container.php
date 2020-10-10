@@ -32,13 +32,11 @@ class QuestionContainer {
             'd' => $this->answer_d
         ];
     }
-    function getShuffleAnswers() {
-        $arr = $this->getAnswers();
-        shuffle($arr);
-        return $arr;
-    }
     function getGood() {
         return $this->good_answer;
+    }
+    function getGoodAnswers() {
+        return $this->getAnswers()[$this->good_answer];
     }
 
 }
