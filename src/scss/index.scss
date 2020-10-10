@@ -1,0 +1,45 @@
+.side-wrapper {
+    background: url(../img/coding-background.jpg) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+.title {
+    text-align: center;
+    padding: 50px;
+}
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50vh;
+}
+.like-buuton-a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 25px;
+    border: rgba(255, 255, 255, 0.5) 3px solid;
+    border-radius: 5px;
+
+    &:hover {
+        transition: 1s;
+        border: rgba(255, 255, 255, 0.9) 3px solid;
+    }
+}
+.author {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    &::before {
+        content: "Autor";
+        color: #fff;
+        padding: 5px 15px;
+        border: rgba(255, 255, 255, 0.5) 3px solid;
+        border-radius: 5px;
+        font-size: 10px;
+    }
+    &:hover::before {
+        content: "Filip Skoczen 4B1";
+    }
+}
+

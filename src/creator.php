@@ -3,9 +3,9 @@
 class Creator {
     public $question;
     public $sequence;
-    function __construct(QuestionContainer $question, $preSequence = '') {
+    function __construct(QuestionContainer $question, $preSequence = null) {
         $this->question = $question;
-        if($preSequence == '') {
+        if($preSequence == null) {
             $this->sequence = ['a', 'b', 'c', 'd'];
             shuffle($this->sequence);
         }
@@ -54,7 +54,7 @@ class Creator {
         echo "
             <form 
                 class='main' 
-                action='result.php?id={$this->question->getId()}&seq={$this->getSequence()}' 
+                action='result?id={$this->question->getId()}&seq={$this->getSequence()}' 
                 method='post'>
         ";              
         return $this;

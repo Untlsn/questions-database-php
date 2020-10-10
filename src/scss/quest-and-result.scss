@@ -1,0 +1,29 @@
+.head{
+    border-top:20px solid #ed6c65;
+    text-align:center;
+    font-size:30px
+}
+.main{
+    padding:0 15vw
+}
+.content{
+    text-align: center;
+    background-color: #26282e;
+    padding: 20px;
+    border: 2px rgba(255, 255, 255, .1) solid;
+    border-radius: 8px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+.answer-tag{
+    font-size: 18px;
+    text-align: start;
+    color: white;
+    width: 100%;
+    background-color: #26282e;
+    padding: 10px;
+    border: 2px rgba(255, 255, 255, .1) solid;
+    border-radius: 8px;
+    margin: 5px;
+}
