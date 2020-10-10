@@ -6,7 +6,7 @@ class MySqlN {
     private mysqli $connection;
 
     function __construct(string $server, string $user, string $password) {
-        $this->connection = new mysqli($server, $user, $password);
+        !$this->connection = new mysqli($server, $user, $password);
     }
 
     function query(string $sqlCode) {

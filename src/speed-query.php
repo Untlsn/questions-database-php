@@ -9,10 +9,10 @@ function countQuestions(MySqlN $mysqln) {
 function getRandomQuestionId(MySqlN $mysqln) {
     return rand(1, countQuestions($mysqln));
 }
-function getRandomQuestionData(MySqlN $mysqln) {
-    $id = getRandomQuestionId($mysqln);
-    return $mysqln->queryOne("SELECT * FROM questions.questions WHERE id = $id");
+function getQuestionById(MySqlN $mysqln, $id) {
+    return new QuestionContainer($mysqln->queryOne("SELECT * FROM questions.questions WHERE id = $id"));
 }
 function getRandomQuestion(MySqlN $mysqln) {
-    return new QuestionContainer(getRandomQuestionData($mysqln));
+    $id = getRandomQuestionId($mysqln);
+    return getQuestionById($mysqln, $id);
 }
